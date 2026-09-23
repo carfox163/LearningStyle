@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning Styles Quiz | 学习风格自测</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 0 20px;
+            background-color: #f0f7ff;
+        }
+        h1 {
+            color: #1954b9;
+            text-align: center;
+        }
+        h2 {
+            color:#1954b9;
+        }
+        .intro {
+            background: #fff;
+            padding:18px;
+            border-radius:12px;
+            margin-bottom:20px;
+            line-height:1.6;
+        }
+        /* =====新增：学习风格前置介绍模块样式===== */
+        .style-intro-wrap{
+            background:#ffffff;
+            padding:24px;
+            border-radius:14px;
+            margin-bottom:24px;
+            line-height:1.7;
+        }
+        .style‑intro‑img{
+            width:100%;
+            height:auto;
+            border-radius:10px;
+            margin-bottom:20px;
+        }
+        .style-type-block{
+            margin:18px 0;
+            padding:14px;
+            background:#f6faff;
+            border-left:4px solid #1954b9;
+            border-radius:6px;
+        }
+        .style-type-block h3{
+            margin-top:0;
+            margin-bottom:8px;
+            color:#1954b9;
+        }
+        .divider-line{
+            height:2px;
+            background:#c5d8f2;
+            margin:28px 0;
+        }
+        .question-block {
+            background: white;
+            padding:16px;
+            border-radius:10px;
+            margin:14px 0;
+        }
+        .q-title {
+            font-weight:bold;
+            margin-bottom:10px;
+        }
+        .option-item {
+            margin:8px 0;
+        }
+        .btn-group{
+            display:flex;
+            gap:16px;
+            flex-wrap:wrap;
+        }
+        button {
+            background:#1954b9;
+            color:white;
+            padding:14px 32px;
+            border:none;
+            border-radius:8px;
+            font-size:18px;
+            cursor:pointer;
+            margin:20px 0;
+        }
+        button:hover {
+            background:#103b80;
+        }
+        #resetBtn{
+            background:#6c757d;
+        }
+        #resetBtn:hover{
+            background:#495057;
+        }
+        #result-area {
+            background:#fff;
+            padding:22px;
+            border-radius:12px;
+            display:none;
+        }
+        .style-card {
+            border-left:5px solid #1954b9;
+            padding:10px 14px;
+            background:#eef5ff;
+            margin:10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Learning Styles Quiz<br>学习风格在线自测</h1>
+
+    <!-- ========== 新增Word文档学习风格介绍部分 + 插图 ========== -->
+    <div class="style-intro-wrap">
+        <img class="style‑intro‑img" src="https://cdn.educba.com/academy/wp-content/uploads/2024/04/Types-of-Learning-Styles.png" alt="Types of Learning Styles">
+
+        <h2>What Are Learning Styles? 什么是学习风格？</h2>
+        <p>Most people do not belong to only one single learning style. We usually have a mix of several styles, with one or two being dominant. Knowing your learning preference helps you choose better study strategies.</p>
+        <p>大多数人不属于单一的学习风格。我们通常是多种风格的混合体，其中一两种占主导。了解自己的学习偏好，可以帮你选择更适合自己的学习策略。</p>
+
+        <div class="style-type-block">
+            <h3>1. Visual 视觉型</h3>
+            <p><em>You prefer using pictures, images, and spatial understanding.</em><br>
+            你更喜欢借助图片、图像和空间感知来理解知识。</p>
+            <p>Visual learners absorb information best when they can see diagrams, charts, videos, mind maps or written notes. They think in pictures, and they often benefit from color‑coding notes, watching demonstrations, or reading textbooks with plenty of illustrations.</p>
+            <p>视觉型学习者在看到图表、曲线图、视频、思维导图或者书面笔记时吸收信息效果最好。他们以图像方式思考，用不同颜色标记笔记、观看演示、阅读带大量插图的教材，通常会让学习事半功倍。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>2. Musical/Auditory 音乐 / 听觉型</h3>
+            <p><em>You prefer using sound and music.</em><br>
+            你更喜欢依靠声音与音乐来学习。</p>
+            <p>Auditory learners learn well through listening. Lectures, discussions, podcasts, audio books, rhymes and songs help them remember content. They can easily recall information they have heard, and they often benefit from reading aloud or explaining ideas verbally.</p>
+            <p>听觉型学习者通过听来高效学习。讲座、讨论、播客、有声书、韵律歌谣都能帮助他们记忆内容。他们很容易回忆起听过的信息，大声朗读、口头复述知识点对他们很有帮助。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>3. Verbal 语言 / 言语型</h3>
+            <p><em>You prefer using words, both in speech and writing.</em><br>
+            你更喜欢运用文字，包括口头表达和书面写作。</p>
+            <p>Verbal learners love language. They enjoy reading, writing, storytelling, debates and word games. They master new knowledge best by describing concepts in words, writing summaries, or discussing ideas.</p>
+            <p>言语型学习者热爱语言。他们喜欢阅读、写作、讲故事、辩论和文字游戏。用文字描述概念、撰写总结、交流探讨观点，是他们掌握新知识最好的方式。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>4. Physical/Kinesthetic 身体 / 动觉型</h3>
+            <p><em>You prefer using your body, hands and sense of touch.</em><br>
+            你更喜欢调动身体、双手以及触觉来学习。</p>
+            <p>Kinesthetic learners are hands‑on learners. They learn best through physical activities, experiments, movement and touching real objects. Sitting still for long periods is hard for them; they retain more knowledge when doing practical tasks, building models or field work.</p>
+            <p>动觉型学习者属于实操型学习者。通过肢体活动、实验、动手操作、触摸实物，他们的学习效果最好。长时间静坐对他们比较困难；实操任务、搭建模型、实地实践能让他们记住更多知识。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>5. Logical/Mathematical 逻辑 / 数理型</h3>
+            <p><em>You prefer using logic, reasoning and systems.</em><br>
+            你更喜欢使用逻辑、推理与体系化的方式学习。</p>
+            <p>Logical learners like patterns, numbers, categories and clear rules. They enjoy puzzles, problem‑solving and exploring the links between ideas. They ask lots of “why” questions and prefer to break complex problems down step by step.</p>
+            <p>逻辑型学习者喜欢规律、数字、分类和清晰的规则。他们喜爱解谜、解决问题、探究观点之间的关联。他们会不断追问 “为什么”，习惯一步步拆解复杂问题。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>6. Social 社交型</h3>
+            <p><em>You prefer to learn in groups or with other people.</em><br>
+            你更喜欢小组学习，和其他人一起学习。</p>
+            <p>Social learners thrive in teamwork, group discussions and peer cooperation. They gain new insights by talking with classmates, listening to different opinions and working together on projects. They are good at communicating and understanding others’ perspectives.</p>
+            <p>社交型学习者在团队协作、小组讨论中学习状态最好。通过和同学交流、倾听不同观点、合作完成项目，他们能获得新理解。他们擅长沟通，容易理解他人的想法。</p>
+        </div>
+
+        <div class="style-type-block">
+            <h3>7. Solitary 独立 / 独处型</h3>
+            <p><em>You prefer to work alone and use self‑study.</em><br>
+            你更喜欢独自学习，采用自学的方式。</p>
+            <p>Solitary learners are self‑directed. They concentrate best when studying by themselves, set personal learning goals and reflect quietly. They enjoy self‑paced reading and independent research, and they understand their own learning needs clearly.</p>
+            <p>独处型学习者自主性强。独自学习时专注力最高，能够自主设定学习目标、安静思考。他们适合自主阅读、独立探究，很清楚自己的学习需求。</p>
+        </div>
+    </div>
+
+    <div class="divider-line"></div>
+
+    <div class="intro">
+        <p> Answer all questions. Choose the option that best describes you. After submitting, you will get your dominant learning style.  请回答全部题目，选择最符合你的选项。提交后，系统会算出你的主导学习风格。</p>
+    </div>
+
+    <form id="quizForm">
+        <!-- Q1 -->
+        <div class="question-block">
+            <div class="q-title">1. When I study new knowledge, I prefer to:    当我学习新知识，我更喜欢：</div>
+            <div class="option-item"><input type="radio" name="q1" value="visual" required> A. Look at diagrams, pictures or mind maps 看图表、图片或思维导图</div>
+            <div class="option-item"><input type="radio" name="q1" value="auditory"> B. Listen to lectures, podcasts or audio materials 听讲座、播客或音频</div>
+            <div class="option-item"><input type="radio" name="q1" value="kinesthetic"> C. Do hands‑on practice or experiments 动手实操、做实验</div>
+        </div>
+        <!-- Q2 -->
+        <div class="question-block">
+            <div class="q-title">2. I remember information best when:    我最容易记住信息的方式：</div>
+            <div class="option-item"><input type="radio" name="q2" value="verbal" required> A. I read or write it down 阅读或者写下来</div>
+            <div class="option-item"><input type="radio" name="q2" value="logical"> B. I understand the rules and logic behind it 理解背后的逻辑规律</div>
+            <div class="option-item"><input type="radio" name="q2" value="social"> C. I discuss it with other people 和别人一起讨论</div>
+        </div>
+        <!-- Q3 -->
+        <div class="question-block">
+            <div class="q-title">3. For a difficult task, I would rather:   面对困难任务，我更愿意：</div>
+            <div class="option-item"><input type="radio" name="q3" value="solitary" required> A. Work it out alone by myself 独自思考解决</div>
+            <div class="option-item"><input type="radio" name="q3" value="social"> B. Team up and talk with classmates 和同学组队讨论</div>
+            <div class="option-item"><input type="radio" name="q3" value="auditory"> C. Listen to an explanation from others 听别人讲解</div>
+        </div>
+        <!-- Q4 -->
+        <div class="question-block">
+            <div class="q-title">4. When learning vocabulary, I like to:    背单词时我喜欢：</div>
+            <div class="option-item"><input type="radio" name="q4" value="visual" required> A. Use flashcards with pictures 使用带图片的单词卡</div>
+            <div class="option-item"><input type="radio" name="q4" value="auditory"> B. Read aloud and listen to pronunciation 大声朗读、听发音</div>
+            <div class="option-item"><input type="radio" name="q4" value="verbal"> C. Write sentences with new words 用单词造句写作</div>
+        </div>
+        <!-- Q5 -->
+        <div class="question-block">
+            <div class="q-title">5. I enjoy learning activities like:    我喜欢的学习活动：</div>
+            <div class="option-item"><input type="radio" name="q5" value="logical" required> A. Solve puzzles and number problems 解谜、数理题目</div>
+            <div class="option-item"><input type="radio" name="q5" value="kinesthetic"> B. Field trips, building models or lab work 实地参观、搭建模型、实验</div>
+            <div class="option-item"><input type="radio" name="q5" value="verbal"> C. Debates, storytelling and writing 辩论、讲故事、写作</div>
+        </div>
+        <!-- Q6 -->
+        <div class="question-block">
+            <div class="q-title">6. When I need to focus, I prefer:    需要专心学习时，我更喜欢：</div>
+            <div class="option-item"><input type="radio" name="q6" value="solitary" required> A. Study quietly alone 安静独自学习</div>
+            <div class="option-item"><input type="radio" name="q6" value="social"> B. Study in a group with partners 和同伴小组学习</div>
+            <div class="option-item"><input type="radio" name="q6" value="auditory"> C. Listen to soft music while studying 边听轻音乐边学习</div>
+        </div>
+        <!-- Q7 -->
+        <div class="question-block">
+            <div class="q-title">7. I can easily remember:    我很容易记住：</div>
+            <div class="option-item"><input type="radio" name="q7" value="visual" required> A. Faces, maps and charts 人脸、地图、图表</div>
+            <div class="option-item"><input type="radio" name="q7" value="auditory"> B. Songs, sounds and spoken words 歌曲、声音、口头话语</div>
+            <div class="option-item"><input type="radio" name="q7" value="kinesthetic"> C. Actions, hand movements and physical experiences 动作、肢体体验</div>
+        </div>
+        <!-- Q8 -->
+        <div class="question-block">
+            <div class="q-title">8. When solving a problem, I usually:   解决问题时，我通常：</div>
+            <div class="option-item"><input type="radio" name="q8" value="logical" required> A. Find patterns and break it step by step 寻找规律，分步拆解</div>
+            <div class="option-item"><input type="radio" name="q8" value="verbal"> B. Talk through the problem in words 用语言梳理问题</div>
+            <div class="option-item"><input type="radio" name="q8" value="solitary"> C. Think quietly without talking 安静思考，不说话</div>
+        </div>
+        <!-- Q9 -->
+        <div class="question-block">
+            <div class="q-title">9. In class, I learn best when:    在课堂上，哪种方式我学得最好：</div>
+            <div class="option-item"><input type="radio" name="q9" value="social" required> A. We have group discussion 小组讨论</div>
+            <div class="option-item"><input type="radio" name="q9" value="visual"> B. Teacher shows videos and diagrams 老师播放视频、展示图表</div>
+            <div class="option-item"><input type="radio" name="q9" value="kinesthetic"> C. We can do hands‑on activities 动手活动</div>
+        </div>
+        <!-- Q10 -->
+        <div class="question-block">
+            <div class="q-title">10. I would rather learn by:   我更愿意通过下面哪种方式学习：</div>
+            <div class="option-item"><input type="radio" name="q10" value="auditory" required> A. Listening to explanations 听讲解</div>
+            <div class="option-item"><input type="radio" name="q10" value="verbal"> B. Reading textbooks and taking notes 阅读教材记笔记</div>
+            <div class="option-item"><input type="radio" name="q10" value="logical"> C. Exploring rules by myself 自己探索规律</div>
+        </div>
+        <!-- Q11 -->
+        <div class="question-block">
+            <div class="q-title">11. Long‑time sitting still for study makes me:    长时间静坐学习会让我：</div>
+            <div class="option-item"><input type="radio" name="q11" value="kinesthetic" required> A. Bored and restless 烦躁、坐不住</div>
+            <div class="option-item"><input type="radio" name="q11" value="solitary"> B. Focused and calm 专注平静</div>
+            <div class="option-item"><input type="radio" name="q11" value="visual"> C. OK if I have pictures to look at 如果有图片看就还好</div>
+        </div>
+        <!-- Q12 -->
+        <div class="question-block">
+            <div class="q-title">12. When reviewing lessons, I prefer:    复习功课我更喜欢：</div>
+            <div class="option-item"><input type="radio" name="q12" value="verbal" required> A. Summarize knowledge in writing 书面总结知识点</div>
+            <div class="option-item"><input type="radio" name="q12" value="social"> B. Review with study partners 和学习伙伴一起复习</div>
+            <div class="option-item"><input type="radio" name="q12" value="auditory"> C. Recite materials aloud 大声背诵</div>
+        </div>
+        <!-- Q13 -->
+        <div class="question-block">
+            <div class="q-title">13. I like to learn new things by:    我学习新知识喜欢：</div>
+            <div class="option-item"><input type="radio" name="q13" value="logical" required> A. Asking "why" and find causes 追问为什么，寻找因果</div>
+            <div class="option-item"><input type="radio" name="q13" value="visual"> B. Watching demonstration videos 看演示视频</div>
+            <div class="option-item"><input type="radio" name="q13" value="kinesthetic"> C. Trying it out myself 亲自尝试</div>
+        </div>
+        <!-- Q14 -->
+        <div class="question-block">
+            <div class="q-title">14. I feel most satisfied when:    什么时候我学习最有成就感：</div>
+            <div class="option-item"><input type="radio" name="q14" value="solitary" required> A. I finish a task independently 独立完成任务</div>
+            <div class="option-item"><input type="radio" name="q14" value="social"> B. I cooperate with others to finish work 和别人合作完成任务</div>
+            <div class="option-item"><input type="radio" name="q14" value="verbal"> C. I can explain ideas clearly in words 能用语言清晰讲出观点</div>
+        </div>
+        <div class="btn-group">
+            <button type="submit">Get Result / 查看测试结果</button>
+            <button id="resetBtn" type="button">Reset / 重置问卷</button>
+        </div>
+    </form>
+    <div id="result-area">
+        <h2>Your Learning Style Result 你的学习风格测试结果</h2>
+        <div id="result-text"></div>
+    </div>
+<script>
+const quizForm = document.getElementById('quizForm');
+const resultArea = document.getElementById('result-area');
+const resultText = document.getElementById('result-text');
+const resetBtn = document.getElementById('resetBtn');
+
+// 学习风格介绍 英汉对照，修复多行字符串语法
+const styleInfo = {
+    visual: {
+        en:"Visual Learner: You learn best with pictures, diagrams, charts and visual materials. You think in images.",
+        cn:`视觉型学习者：图片、图表、思维导图这类视觉材料最适合你，你习惯图像化思考。
+<p>Visual learners refer to people who learn efficiently by relying on visual information. Visual materials such as pictures, charts and mind maps can help them receive and understand knowledge better. They tend to form images in their minds when thinking, and sort out information and memorize content with the help of pictures.</p>
+<p>视觉型学习者指依靠视觉信息进行高效学习的人群。图片、图表、思维导图等视觉材料能够帮助这类人更好接收和理解知识，他们在思考时习惯在脑海中构建图像，借助画面来梳理信息、记忆内容。</p>
+<p>Typical characteristics: They absorb knowledge better by reading graphic materials than simply listening to explanations; they are good at organizing knowledge points by drawing mind maps, marking key points and sketching diagrams; they are more likely to recall visual information such as pictures, layouts and colors when memorizing things.</p>
+<p>典型表现：看图文资料比单纯听讲解吸收效果更好；擅长通过画思维导图、标注重点、绘制示意图整理知识点；记忆事物时更容易回想起画面、布局、颜色等视觉信息。</p>
+<p>Learning suggestions: Use flowcharts and mind maps to sort out knowledge frameworks; mark key content with colors; try to use diagrams in learning and reduce memorization by simply reading texts aloud.</p>
+<p>学习建议：多用流程图、思维导图梳理知识框架；用彩色标记划分内容重点；学习时尽量搭配示意图，减少单纯的文字朗读记忆。</p>`
+    },
+    auditory: {
+        en:"Musical/Auditory Learner: You absorb knowledge through listening, sound, lectures and audio content.",
+        cn:`听觉/音乐型学习者：通过聆听、音频、课堂讲解吸收知识效果最好。
+<p>Auditory /musical learners are a type in the classification of learning styles. When receiving information, such learners take the auditory channel as their dominant perceptual channel. They rely on listening to sounds, recordings, verbal explanations and audio materials to understand and memorize knowledge, and their learning effect is much better than simply reading texts. For example, listening to course recordings, hearing knowledge points narrated orally and reviewing with audiobooks are quite suitable for them. In contrast, studying by reading books alone for a long time makes it easier for such learners to lose concentration.</p>
+<p>听觉 / 音乐型学习者属于学习风格分类里的一种类型，这类学习者在接收信息时，听觉渠道是优势感知通道。他们依靠听声音、听录音、听口头讲解、音频素材来理解和记忆知识，学习效果远优于单纯阅读文字。比如听课程录音、听口述知识点、借助有声书复习，都比较适合他们；相对而言，长时间独自看书学习，对这类学习者来说更容易注意力涣散。</p>`
+    },
+    verbal: {
+        en:"Verbal Learner: Words are your strength. Reading, writing, speaking and discussion help you learn.",
+        cn:`言语型学习者：擅长文字，阅读、写作、口头表达、讨论都很适合你。
+<p>Linguistic learners refer to people with outstanding linguistic intelligence. They are highly sensitive to textual information and good at comprehending the meaning of language. They can effectively acquire knowledge through reading, organize ideas clearly in writing, and express themselves coherently orally. They are also adept at voicing opinions and engaging in critical thinking during communication and discussions. Suitable learning methods include reading books, taking notes, delivering speeches and participating in group discussions. Suitable career paths cover literary creation, copywriting, education, media, law and other fields that require extensive written and verbal expression.</p>
+<p>言语型学习者指语言智能突出的人，这类人对文字信息敏感度高，善于理解语言含义，能够很好地通过阅读吸收知识，写作时可以清晰组织观点，口头表达条理流畅，也擅长在交流讨论中表达想法、思辨沟通。适合的学习方式有阅读书籍、写笔记、演讲、参与小组讨论等；适配的发展方向包括文学创作、文案、教育、传媒、法律等需要大量文字与口头表达的领域。</p>`
+    },
+    kinesthetic: {
+        en:"Physical/Kinesthetic Learner: You learn by hands‑on practice, movement and real experience.",
+        cn:`动觉/身体型学习者：动手实操、亲身实践、肢体活动是你的高效学习方式。
+<p>Kinesthetic learners are a type in the classification of learning styles. Such learners acquire and internalize knowledge through hands‑on operations, personal practice and physical activities. Learning methods that merely involve listening to lectures and reading texts are less efficient for them. Engaging the body in the learning process, such as conducting experiments, doing field practice and using body movements to aid memorization, helps them better understand and consolidate what they have learned. For instance, when learning physical principles, building models for testing by themselves works better than only reading formulas in textbooks; reciting and memorizing languages with body movements also fits the characteristics of such learners.</p>
+<p>动觉 / 身体型学习者属于学习风格分类里的一种类型，这类学习者依靠动手实操、亲身实践、肢体活动来接收和内化知识。单纯听讲、阅读文字的学习方式对他们而言效率偏低，在学习过程中调动身体参与，比如动手做实验、实地演练、借助肢体动作辅助记忆，能够更好地理解并巩固所学内容。例如学习物理原理时，比起只看书本公式，亲手搭建模型做测试；学习语言时配合肢体动作朗读记忆，都更契合这类学习者的特点。</p>`
+    },
+    logical: {
+        en:"Logical/Mathematical Learner: You learn through reasoning, logic, patterns and step‑by‑step analysis.",
+        cn:`逻辑数理型学习者：依靠推理、规律、分步分析来理解知识。
+<p>Logical‑mathematical learners refer to those who mainly rely on logical reasoning, discovering the inherent laws of things, and analyzing by breaking down problems step by step to understand and master knowledge. They are good at clarifying cause‑and‑effect relationships and prefer learning through deduction, demonstration and induction. They have a higher acceptance of abstract concepts, numbers and logical content, and are more suited to a progressive and well‑organized learning style. For example, when learning mathematical theorems, they prefer to deduce the origin of theorems step by step rather than simply memorizing conclusions. When learning scientific knowledge points, they tend to sort out the logical chains between knowledge and achieve understanding through analysis and reasoning.</p>
+<p>逻辑数理型学习者指这类学习者主要依靠逻辑推理、寻找事物内在规律、分步拆解分析的方式去理解和掌握知识。他们擅长理清因果关系，喜欢通过推导、论证、归纳总结来学习，对抽象概念、数字、逻辑类内容接受度更高，更适合循序渐进、有条理的学习方式。例如在学习数学定理时，相比直接背诵结论，他们更愿意一步步推导定理的由来；学习理科知识点时，习惯梳理知识之间的逻辑链条，借助分析推理完成理解。</p>`
+    },
+    social: {
+        en:"Social Learner: You gain deeper understanding through group work, communication and peer discussion.",
+        cn:`社交型学习者：小组合作、与人交流讨论，能让你理解更深。
+<p>Social learners are a type of learning style. Such learners can better absorb knowledge and deepen their understanding of it through group cooperation and interpersonal communication and discussion. They tend to complete learning by communicating with others, exchanging ideas and discussing questions with one another. Compared with studying alone, they achieve higher learning efficiency in interactive scenarios. For example, when conducting group research on a project, they can identify gaps in their own understanding and improve their cognition while exchanging viewpoints with classmates.</p>
+<p>社交型学习者属于学习风格的一种类型，这类学习者在小组合作、人际交流讨论的过程中，能够更好地吸收知识，加深对知识的理解。他们倾向于通过和他人沟通、交换想法、互相探讨疑问来完成学习，相比于独自埋头学习，在互动的场景里学习效率更高。例如小组研讨课题时，他们可以在和同学交流观点的过程中，发现自身理解存在的漏洞，完善认知。</p>`
+    },
+    solitary: {
+        en:"Solitary Learner: You prefer self‑study and independent thinking. You concentrate best when alone.",
+        cn:`独处独立型学习者：适合自学与独立思考，独自一人时专注力最强。
+<p>Solitary learners  do not rely on others during study. They tend to arrange learning schedules on their own and absorb knowledge through independent thinking. Quiet environments without distractions help them stay focused. Compared with group discussions and cooperative learning, self‑study suits them better. However, this learning style has drawbacks. Studying alone for a long time may lead to a lack of exchange of ideas, and it is hard to get timely help when meeting difficulties. They need to take initiative to communicate with others to make up for this weakness.</p>
+<p>这类学习者在学习过程中不依赖他人，习惯自主安排学习节奏，依靠独立思考消化知识。安静、无他人干扰的环境能帮助他们集中注意力，相比小组讨论、合作学习，独自钻研的模式更适配他们。但这种学习方式也存在局限，长时间独自学习容易缺少观点碰撞，遇到难题时难以及时获得他人点拨，需要主动搭配交流环节弥补短板。</p>`
+    }
+};
+
+quizForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const score = {visual:0,auditory:0,verbal:0,kinesthetic:0,logical:0,social:0,solitary:0};
+    const formData = new FormData(quizForm);
+    for(let val of formData.values()){
+        score[val] +=1;
+    }
+    //排序
+    const sorted = Object.entries(score).sort((a,b)=>b[1]-a[1]);
+    const top1 = sorted[0][0];
+    const top2 = sorted[1][0];
+    let html = `<div class="style-card">
+    <p><b>Dominant Style 主导风格：</b><br>${styleInfo[top1].en}<br>${styleInfo[top1].cn}</p>
+    </div>
+    <div class="style-card">
+    <p><b>Secondary Style 次要风格：</b><br>${styleInfo[top2].en}<br>${styleInfo[top2].cn}</p>
+    </div>
+    <p>Note: Most people have mixed learning styles. Your top two styles are your preferred ways to study.<br>注：大多数人都是混合学习风格，排名前两项是你最偏好的学习方式。</p>`;
+    resultText.innerHTML = html;
+    resultArea.style.display = "block";
+    resultArea.scrollIntoView({behavior:"smooth"});
+})
+
+//重置问卷逻辑
+resetBtn.addEventListener('click',function(){
+    quizForm.reset();
+    resultArea.style.display = "none";
+    quizForm.scrollIntoView({behavior:"smooth"});
+})
+</script>
+</body>
+<!-- （By CreativeLearner） -->
+</html>
+<!-- （注：内容由AI生成） -->
